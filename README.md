@@ -15,6 +15,12 @@ After that, you can compile this program with using the following command in pro
 make
 ```
 
+Output files can be deleted with following command:
+
+```sh
+make clean
+```
+
 Example usage:
 
 ```sh
