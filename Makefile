@@ -1,9 +1,6 @@
 # --------------------------------------------------
 # Author: ggulteki
 # Last Updated: 2024-10-31
-# Usage:
-#   make        - Compile the calculator
-#   make clean  - Remove the executable
 # --------------------------------------------------
 
 CXX = g++
