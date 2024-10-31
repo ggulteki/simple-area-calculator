@@ -13,9 +13,10 @@
 
 /*
 * Lambda function for getting more precise calculation
+* Results are automatically deduced to be of the same type as the functions' inputs due to the use of the 'auto'
 */
 auto squareAreaCalc = [](const auto sideLength) {
-    auto result = sideLength * sideLength; // auto type variable for 
+    auto result = sideLength * sideLength;
     std::cout << "The area of the square is: " << result << std::endl;
 };
 
@@ -34,11 +35,10 @@ int main(int argc, char *argv[]) {
     auto value1 = 0.0;
     auto value2 = 0.0;
     
-    do {
-        if (argc != 2) {
-            std::cout << "Error: Wrong argument count.." << std::endl;
-            std::cout << "Ex-Usage: calculator [shape]" << std::endl;
-            return -1;
+    if (argc != 2) {
+        std::cout << "Error: Wrong argument count.." << std::endl;
+        std::cout << "Ex-Usage: calculator [shape]" << std::endl;
+        return -1;
         } else {
             if (strcmp(argv[1], "square") == 0 || strcmp(argv[1], "rectangle") == 0 || strcmp(argv[1], "circle") == 0) {
                 if (strcmp(argv[1], "square") == 0) {
@@ -46,27 +46,25 @@ int main(int argc, char *argv[]) {
                     std::cin >> value1;
                     squareAreaCalc(value1);
                 }
-                
-                if (strcmp(argv[1], "rectangle") == 0) {
-                    std::cout << "Enter the width value of the rectangle.." << std::endl;
-                    std::cin >> value1;
-                    std::cout << "Enter the length value of the rectangle.." << std::endl;
-                    std::cin >> value2;
-                    rectangleAreaCalc(value1, value2);
+            
+            if (strcmp(argv[1], "rectangle") == 0) {
+                std::cout << "Enter the width value of the rectangle.." << std::endl;
+                std::cin >> value1;
+                std::cout << "Enter the length value of the rectangle.." << std::endl;
+                std::cin >> value2;
+                rectangleAreaCalc(value1, value2);
                 }
-
-                if (strcmp(argv[1], "circle") == 0) {
-                    std::cout << "Enter the radius of the circle.." << std::endl;
-                    std::cin >> value1;
-                    circleAreaCalc(value1);
+            
+            if (strcmp(argv[1], "circle") == 0) {
+                std::cout << "Enter the radius of the circle.." << std::endl;
+                std::cin >> value1;
+                circleAreaCalc(value1);
                 }
             } else {
-                std::cout << "Error: Wrong argument count.." << std::endl;
-                std::cout << "Ex-Usage: calculator [shape]" << std::endl;  
+                std::cout << "Error: Wrong shape.." << std::endl;
+                std::cout << "Available shapes: 'square', 'rectange', 'circle'" << std::endl;  
+                }
             }
-        }
-        isTrue = true;
-    } while (isTrue != true);
 
     return 0;
 }
